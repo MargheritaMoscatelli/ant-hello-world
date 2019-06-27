@@ -16,5 +16,8 @@ parts:
   ant:
     source: .
     plugin: ant
-    ant-openjdk-version: "11"
+    #ant-openjdk-version: "11"
+    ant-snap-channel: "1.9/candidate"
+    #ant-version: "1.10.5"
+    #ant-version-checksum: "sha512/a7f1e0cec9d5ed1b3ab6cddbb9364f127305a997bbc88ecd734f9ef142ec0332375e01ace3592759bb5c3307cd9c1ac0a78a30053f304c7030ea459498e4ce4e"
     #ant-buildfile: "test.xml"
