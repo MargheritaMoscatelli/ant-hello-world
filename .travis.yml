@@ -1,5 +1,4 @@
 language: minimal
-sudo: true
 dist: xenial
 
 env:
@@ -10,15 +9,18 @@ env:
     - SNAPCRAFT_ENABLE_DEVELOPER_DEBUG: y
 
 script:
-- sudo apt-get update
-- sudo apt-get --yes install snapd
-- sudo snap install lxd
-- sudo snap install snapcraft --classic
 - sudo /snap/bin/lxd.migrate -yes
 - sudo /snap/bin/lxd waitready
 - sudo /snap/bin/lxd init --auto
-- mkdir -p "$TRAVIS_BUILD_DIR/snaps-cache"
 - sudo snapcraft --use-lxd
+
+addons:
+  snaps:
+    - name: snapcraft
+      channel: edge
+      confinement: classic
+    - name: lxd
+      channel: edge
 
 deploy:
   provider: snap
