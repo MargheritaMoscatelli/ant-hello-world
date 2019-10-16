@@ -1,13 +1,6 @@
 language: minimal
 dist: xenial
 
-env:
-  global:
-    - LC_ALL: C.UTF-8
-    - LANG: C.UTF-8
-    - SNAPCRAFT_ENABLE_SILENT_REPORT: y
-    - SNAPCRAFT_ENABLE_DEVELOPER_DEBUG: y
-
 script:
 - sudo /snap/bin/lxd.migrate -yes
 - sudo /snap/bin/lxd waitready
@@ -17,15 +10,16 @@ script:
 addons:
   snaps:
     - name: snapcraft
-      channel: edge
+      channel: stable
       confinement: classic
     - name: lxd
-      channel: edge
+      channel: stable
 
 deploy:
   provider: snap
   snap: cjp256-ant-hello-world*.snap
   channel: edge
-  skip_cleanup: true
+
+  # Use Travis' DPL v2 under development.
   edge:
     branch: master
