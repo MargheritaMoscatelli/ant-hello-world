@@ -27,3 +27,5 @@ deploy:
   snap: cjp256-ant-hello-world*.snap
   channel: edge
   skip_cleanup: true
+  edge:
+    branch: master
