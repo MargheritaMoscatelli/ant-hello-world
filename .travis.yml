@@ -18,8 +18,4 @@ addons:
 deploy:
   provider: snap
   snap: cjp256-ant-hello-world*.snap
-  channel: edge
-
-  # Use Travis' DPL v2 under development.
-  edge:
-    branch: master
+  channel: edge-$TRAVIS_BRANCH
