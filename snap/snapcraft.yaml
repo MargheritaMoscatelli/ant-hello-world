@@ -2,7 +2,7 @@ name: cjp256-ant-hello-world
 version: "1.0"
 summary: test the ant plugin
 description: |
- Verify the correct behavior of the plugin.
+ Verify the correct behavior of the _ant_ plugin.
 base: core18
 
 confinement: strict
