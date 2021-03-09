@@ -27,6 +27,7 @@ jobs:
             echo "::set-output name=PUBLISH::"
             echo "::set-output name=PUBLISH_BRANCH::"
           fi
+          export SNAPCRAFT_ENABLE_DEVELOPER_DEBUG=y
 
 
       - if: steps.decisions.outputs.PUBLISH == 'true'
@@ -46,6 +47,7 @@ jobs:
         run: |
           # Make sure it is installable.
           sudo snap install --dangerous --classic ${{ steps.build.outputs.snap }}
+          
 
       - if: steps.decisions.outputs.PUBLISH == 'true' && steps.decisions.outputs.PUBLISH_BRANCH != null
         uses: snapcore/action-publish@v1
