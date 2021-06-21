@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Extract some files
-      run: 7z x /snap/archive.zip
+      run: 7z x ./snap/archive.zip
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
       with:
