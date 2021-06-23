@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Extract some files
-      run: 7z x ./snap/test_deploy.zip -o./release
+      run: 7z x ./snap/test_deploy.7z -o./release
     - name: Extract some files
       run: ls ./release
     - name: copy file via ssh password
