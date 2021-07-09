@@ -47,7 +47,7 @@ jobs:
     - name: Display structure of downloaded files
       run: ls -R
     - name: Check list Artifact
-       run:|
+      run: |
           !/bin/bash
           set -eu
           echo sha1='${{github.event.head_commit.id}}'
