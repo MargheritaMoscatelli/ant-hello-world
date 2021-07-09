@@ -59,11 +59,11 @@ jobs:
           git -C "$(brew --repo ${{github.repository}})" fetch origin "pull/$pr/head:pr-head"
           sha1="$(git -C "$(brew --repo ${{github.repository}})" rev-parse pr-head)"
           echo pr="$pr" sha1="$sha1"
-          if [[ -n "$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/pulls/$pr \
-            | jq '.labels[] | select(.name == "ci-skip-upload")')" ]]; then
-            echo Skipping upload...
-          else
-            run_id=$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/workflows/build-bottles.yml/runs \
-              | jq ".workflow_runs[] | select(.head_sha == \"$sha1\").id")
-            artifact_id="$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/runs/$run_id/artifacts \
-              | jq '.artifacts[0].id')"
+          #if [[ -n "$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/pulls/$pr \
+          #  | jq '.labels[] | select(.name == "ci-skip-upload")')" ]]; then
+          #  echo Skipping upload...
+          #else
+          #  run_id=$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/workflows/build-bottles.yml/runs \
+          #    | jq ".workflow_runs[] | select(.head_sha == \"$sha1\").id")
+          #  artifact_id="$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/runs/$run_id/artifacts \
+          #    | jq '.artifacts[0].id')"
