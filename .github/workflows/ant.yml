@@ -48,7 +48,7 @@ jobs:
       run: ls -R
     - name: Check list Artifact
       run: |
-          !/bin/bash
+          #!/bin/bash
           set -eu
           echo sha1='${{github.event.head_commit.id}}'
           echo '${{github.event.head_commit.message}}'
