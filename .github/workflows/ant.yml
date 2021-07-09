@@ -36,11 +36,11 @@ jobs:
         distribution: 'adopt'
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
-#    - name: Archive code coverage results
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: test
-#        path: ./release
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test
+        path: ./release
     - uses: actions/download-artifact@master
       with:
           name: test
