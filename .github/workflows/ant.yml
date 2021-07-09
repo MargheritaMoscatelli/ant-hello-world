@@ -12,10 +12,10 @@ on:
       #versionCode:
       #  description: 'Version number (50500)'
       #  required: true
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  #push:
+  #  branches: [ master ]
+  #pull_request:
+  #  branches: [ master ]
 
 jobs:
   build:
