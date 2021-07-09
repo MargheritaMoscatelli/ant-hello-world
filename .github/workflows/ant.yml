@@ -4,6 +4,14 @@
 name: Java CI
 
 on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Name of version  (ie 5.5.0)'
+        required: true
+      #versionCode:
+      #  description: 'Version number (50500)'
+      #  required: true
   push:
     branches: [ master ]
   pull_request:
@@ -39,11 +47,11 @@ jobs:
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
       with:
-        name: test
+        name: test_${{ github.event.inputs.versionName }}
         path: ./release
     - uses: actions/download-artifact@master
       with:
-          name: test
+          name: test_${{ github.event.inputs.versionName }}
     - name: Display structure of downloaded files
       run: ls -R
     - name: Check list Artifact
