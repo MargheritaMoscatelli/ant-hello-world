@@ -49,17 +49,7 @@ jobs:
     - name: Check list Artifact
       run: |
           #!/bin/bash
-          set -eu
-          echo sha1='${{github.event.head_commit.id}}'
-          echo '${{github.event.head_commit.message}}'
-          pr="$(echo '${{github.event.head_commit.message}}' | sed 's/^.*#\([0-9]*\).*/\1/;q')"
-          mkdir -p "$(dirname $(brew --repo ${{github.repository}}))"
-          cp -a "$GITHUB_WORKSPACE" "$(brew --repo ${{github.repository}})"
-          rm -rf .git *
-          git -C "$(brew --repo ${{github.repository}})" fetch origin "pull/$pr/head:pr-head"
-          sha1="$(git -C "$(brew --repo ${{github.repository}})" rev-parse pr-head)"
-          echo siamo arrivati qui
-          #echo pr="$pr" sha1="$sha1"
+          curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/actions/artifacts
           #if [[ -n "$(curl -fs -H 'Accept:application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/pulls/$pr \
           #  | jq '.labels[] | select(.name == "ci-skip-upload")')" ]]; then
           #  echo Skipping upload...
