@@ -52,6 +52,8 @@ jobs:
     - uses: actions/download-artifact@master
       with:
           name: test_${{ github.event.inputs.versionName }}
+    - name: Valore variabile
+      run: echo "Hello ${{ github.event.inputs.versionName }}!"
     - name: Display structure of downloaded files
       run: ls -R
     - name: Check list Artifact
