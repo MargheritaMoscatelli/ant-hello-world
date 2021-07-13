@@ -55,11 +55,11 @@ jobs:
     - name: Valore variabile
       run: echo "Hello ${{ github.event.inputs.versionName }}!"
     - name: Valore GITHUB_REF  
-      run: echo "GITHUB_REF = ${{GITHUB.REF}}
+      run: echo "GITHUB_REF = ${{GITHUB.REF}}"
     - name: Valore GITHUB_HEAD_REF  
-      run: echo "GITHUB_HEAD_REF = ${{GITHUB.HEAD.REF}}
+      run: echo "GITHUB_HEAD_REF = ${{GITHUB.HEAD.REF}}"
     - name: Valore GITHUB_BASE_REF  
-      run: echo "GITHUB_BASE_REF = ${{GITHUB.BASE.REF}}
+      run: echo "GITHUB_BASE_REF = ${{GITHUB.BASE.REF}}"
     - name: Display structure of downloaded files
       run: ls -R
     - name: Check list Artifact
