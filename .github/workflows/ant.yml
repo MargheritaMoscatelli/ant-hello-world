@@ -62,6 +62,8 @@ jobs:
       run: echo "GITHUB_BASE_REF = ${{GITHUB.BASE_REF}}"
     - name: Valore GITHUB_REPOSITORY
       run: echo "GITHUB_REPOSITORY = ${{GITHUB.REPOSITORY}}"
+    - name: Nome Branch
+      run: echo "${GITHUB_REF#refs/heads/}"
     - name: Display structure of downloaded files
       run: ls -R
     - name: Check list Artifact
