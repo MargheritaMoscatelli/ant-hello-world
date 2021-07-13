@@ -6,7 +6,7 @@ on:
       versionName:
         description: 'Name of version  (ie 5.5.0)'
         required: true
-      brachName:
+      branchName:
         description: 'Name of branch'
         required: true
 
