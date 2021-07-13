@@ -54,6 +54,7 @@ jobs:
           name: test_${{ github.event.inputs.versionName }}
     - name: Valore variabile
       run: echo "Hello ${{ github.event.inputs.versionName }}!"
+           echo " GITHUB_REF = ${{GITHUB.REF}}
     - name: Display structure of downloaded files
       run: ls -R
     - name: Check list Artifact
