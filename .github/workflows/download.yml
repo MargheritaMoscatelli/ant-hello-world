@@ -1,13 +1,25 @@
+name: Downlod Artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Name of version  (ie 5.5.0)'
+        required: true
+      brachName:
+        description: 'Name of branch'
+        required: true
+
 jobs:
-  weekday_job:
+  download:
+
     runs-on: ubuntu-latest
-    env:
-      DAY_OF_WEEK: Mon
+    
     steps:
-      - name: "Hello world when it's Monday"
-        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
-        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
-        env:
-          FIRST_NAME: Mona
-          middle_name: The
-          Last_Name: Octocat
+      - name: Check list Artifact
+        run: |
+          #!/bin/bash
+          curl -fs -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/actions/artifacts |
+          jq '.artifacts[] | select(.name == "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}") |
+          .archive_download_url'
+          
