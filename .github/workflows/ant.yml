@@ -44,15 +44,13 @@ jobs:
         distribution: 'adopt'
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
       with:
-        name: test_${ branch }_${{ github.event.inputs.versionName }}
+        name: test_${ env.BRANCH }_${{ github.event.inputs.versionName }}
         path: ./release
+      env:
+          BRANCH: ${GITHUB_REF#refs/heads/}
     - uses: actions/download-artifact@master
       with:
           name: test_${{ github.event.inputs.versionName }}
