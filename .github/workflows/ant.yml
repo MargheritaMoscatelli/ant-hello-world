@@ -47,7 +47,7 @@ jobs:
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
       with:
-        name: test_${ env.BRANCH }_${{ github.event.inputs.versionName }}
+        name: test_${{ env.BRANCH }}_${{ github.event.inputs.versionName }}
         path: ./release
       env:
           BRANCH: ${GITHUB_REF#refs/heads/}
