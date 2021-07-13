@@ -47,7 +47,7 @@ jobs:
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
       with:
-        name: test_${{GITHUB_REF#refs/heads/}}_${{ github.event.inputs.versionName }}
+        name: test_${ github.ref#refs/heads/ }_${{ github.event.inputs.versionName }}
         path: ./release
     - uses: actions/download-artifact@master
       with:
