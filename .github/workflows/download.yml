@@ -29,4 +29,4 @@ jobs:
       - name: Download
         run: |
           #!/bin/bash
-          curl -fs -H "Accept: application/vnd.github.v3+json" $DOWNLOAD_URL
+          curl -fs -H "Accept: application/vnd.github.v3+json" ${{ env.DOWNLOAD_URL }}
