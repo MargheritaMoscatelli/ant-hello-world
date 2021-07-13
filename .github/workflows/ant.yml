@@ -57,7 +57,7 @@ jobs:
         path: ./release
     - uses: actions/download-artifact@master
       with:
-          name: test_${{ github.event.inputs.versionName }}
+          name: test_${{ steps.branch.outputs.substring }}_${{ github.event.inputs.versionName }}
     - name: Valore variabile
       run: echo "Hello ${{ github.event.inputs.versionName }}!"
     - name: Valore GITHUB_REF  
