@@ -44,13 +44,17 @@ jobs:
         distribution: 'adopt'
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
+    - uses: bhowell2/github-substring-action@v1
+      id: branch
+      with:
+        value: "${{GITHUB.REF}}"
+        index_of_str: "refs/heads/"
+        # steps.branch.outputs.substring = 'c123'
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
       with:
-        name: test_${{ env.BRANCH }}_${{ github.event.inputs.versionName }}
+        name: test_${{ steps.branch.outputs.substring }}_${{ github.event.inputs.versionName }}
         path: ./release
-      env:
-          BRANCH: ${GITHUB_REF#refs/heads/}
     - uses: actions/download-artifact@master
       with:
           name: test_${{ github.event.inputs.versionName }}
