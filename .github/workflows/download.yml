@@ -32,4 +32,4 @@ jobs:
       - name: Download
         run: |
           #!/bin/bash
-          curl -O ${{ steps.url.outputs.url }}
+          curl -O "./Release/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" ${{ steps.url.outputs.url }}
