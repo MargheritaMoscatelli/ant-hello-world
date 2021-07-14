@@ -18,9 +18,9 @@ jobs:
     steps:
       - name: Get url
         id: url
-        run: echo "::set-output name=url::$(curl -fs https://api.github.com/repos/${{github.repository}}/actions/artifacts |
+        run: echo ::set-output name=url::$(curl -fs https://api.github.com/repos/${{github.repository}}/actions/artifacts |
             jq '.artifacts[] | select(.name == "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}") |
-            .archive_download_url')"
+            .archive_download_url')
       #- name: Check list Artifact
       #  run: echo "Setting Donwload URL Variable"
       #  env:
