@@ -38,4 +38,4 @@ jobs:
           #!/bin/bash
           mkdir ./output
           cd ./output
-          curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
+          curl -v -L -u margheritamoscatelli:${{ secrets.TOKEN }} -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
