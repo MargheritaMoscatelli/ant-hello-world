@@ -37,11 +37,6 @@ jobs:
         run: |
           #!/bin/bash
           pwd
-          [ ! -d "./releases" ] && echo "Directory ./releases exist"
-          [ ! -d "releases" ] && echo "Directory releases exist"
-          [ ! -d "/releases" ] && echo "Directory /releases exist"
-          [ ! -d "/ant-hello-world/releases/" ] && echo "Directory /ant-hello-world/releases/ exist"
-          [ ! -d "./ant-hello-world/releases/" ] && echo "Directory ./ant-hello-world/releases/ exist"
-          [ ! -d "ant-hello-world/releases/" ] && echo "Directory ant-hello-world/releases/ exist"
+          mkdir ./releases/pluto.txt
 
           #curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
