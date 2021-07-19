@@ -36,8 +36,4 @@ jobs:
       - name: Dowload
         run: |
           #!/bin/bash
-          pwd
-          [ -d "/home/runner/work/ant-hello-world/ant-hello-world" ] && echo "ok"
-          mkdir /home/runner/work/ant-hello-world/ant-hello-world/releases/pluto.txt
-
-          #curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
+          curl -v -L -u margheritamoscatelli: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 -o "./releases/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
