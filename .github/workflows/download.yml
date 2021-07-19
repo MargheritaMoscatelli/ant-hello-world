@@ -38,4 +38,4 @@ jobs:
           #!/bin/bash
           mkdir ./output
           cd ./output
-          curl -v -L -u margheritamoscatelli:${{ secrets.TOKEN }} -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
+          curl -u username[:{token}] -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
