@@ -36,4 +36,4 @@ jobs:
       - name: Dowload
         run: |
           #!/bin/bash
-          curl -v -L -H "Authorization: token token" "${{ steps.url.outputs.url }}" -o "./releases/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" 
+          curl -v -L -u margheritamoscatelli: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 -o "./releases/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" "${{ steps.url.outputs.url }}"
