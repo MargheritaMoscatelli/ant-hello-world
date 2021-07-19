@@ -36,5 +36,7 @@ jobs:
       - name: Dowload
         run: |
           #!/bin/bash
-          mv releases/pippo.txt /dist
+          cd $RUNNER_TEMP
+          echo $RUNNER_TEMP
+          
           curl -v -L -u margheritamoscatelli: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 -o "releases/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
