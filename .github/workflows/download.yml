@@ -36,5 +36,5 @@ jobs:
       - name: Dowload
         run: |
           #!/bin/bash
-          cd ./releases
+          cd /home/runner/work/ant-hello-world/ant-hello-world/releases
           curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
