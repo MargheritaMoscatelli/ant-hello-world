@@ -36,5 +36,12 @@ jobs:
       - name: Dowload
         run: |
           #!/bin/bash
-          cd /home/runner/work/ant-hello-world/ant-hello-world/releases
-          curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
+          pwd
+          [ -d "./releases" ] && echo "Directory ./releases exist"
+          [ -d "releases" ] && echo "Directory releases exist"
+          [ -d "/releases" ] && echo "Directory /releases exist"
+          [ -d "/ant-hello-world/releases/" ] && echo "Directory /ant-hello-world/releases/ exist"
+          [ -d "./ant-hello-world/releases/" ] && echo "Directory ./ant-hello-world/releases/ exist"
+          [ -d "ant-hello-world/releases/" ] && echo "Directory ant-hello-world/releases/ exist"
+
+          #curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
