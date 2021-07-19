@@ -37,6 +37,7 @@ jobs:
         run: |
           #!/bin/bash
           pwd
-          mkdir ./releases/pluto.txt
+          [ -d "/home/runner/work/ant-hello-world/ant-hello-world" ] && echo "ok"
+          mkdir /home/runner/work/ant-hello-world/ant-hello-world/releases/pluto.txt
 
           #curl -v -L -u margheritamoscatelli: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 -o "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}.zip" "${{ steps.url.outputs.url }}"
