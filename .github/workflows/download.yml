@@ -29,7 +29,11 @@ jobs:
       #      .archive_download_url')
       - name: Check path
         run: pwd
-      - name: Download
+      #- name: Download
+      #  run: |
+      #    #!/bin/bash
+      #    curl -O "./Release/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" ${{ steps.url.outputs.url }}
+      - name: Dowload
         run: |
           #!/bin/bash
-          curl -O "./Release/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" ${{ steps.url.outputs.url }}
+          curl -v -L -H "Authorization: token token" "${{ steps.url.outputs.url }}" -o "./releases/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" 
