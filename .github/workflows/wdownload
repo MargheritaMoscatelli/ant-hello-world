@@ -1,7 +1,41 @@
+name: Downlod Artifact
 
+on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Name of version  (ie 5.5.0)'
+        required: true
+      branchName:
+        description: 'Name of branch'
+        required: true
 
-$uri = "https://api.github.com/repos/margheritamoscatelli/ant-hello-world-test/actions/artifacts/76273288/zip"
-    $method = "GET"
-    $token = "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"
-	$output = "C:\Users\m.moscatelli\Desktop\download"
-	Invoke-WebRequest -Method $method -Uri $uri -OutFile $output -ContentType "application/json" -Headers @{Authorization = "Bearer $token"} -ErrorAction Stop
+jobs:
+  download:
+
+    runs-on: windows-latest
+    
+    steps:
+      #- name: Get url
+      #  id: url
+      #  run: echo ::set-output name=url::$(curl -fs https://api.github.com/repos/${{github.repository}}/actions/artifacts |
+      #      jq '.artifacts[] | select(.name == "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}") |
+      #      .archive_download_url')
+      #- name: Check list Artifact
+      #  run: echo "Setting Donwload URL Variable"
+      #  env:
+      #    DOWNLOAD_URL: $(#!/bin/bash | curl -fs -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/actions/artifacts |
+      #      jq '.artifacts[] | select(.name == "test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}") |
+      #      .archive_download_url')
+      #- name: Check path
+      #  run: pwd
+      #- name: Download
+      #  run: |
+      #    #!/bin/bash
+      #    curl -O "./Release/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" ${{ steps.url.outputs.url }}
+      - name: Dowload
+        run: |
+          $method = "GET"
+          $token = "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"
+	  $output = "./output"
+	  Invoke-WebRequest -Method $method -Uri $uri -OutFile $output -ContentType "application/json" -Headers @{Authorization = "Bearer $token"} -ErrorAction Stop
