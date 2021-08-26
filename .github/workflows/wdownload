@@ -1,0 +1,7 @@
+
+
+$uri = "https://api.github.com/repos/margheritamoscatelli/ant-hello-world-test/actions/artifacts/76273288/zip"
+    $method = "GET"
+    $token = "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"
+	$output = "C:\Users\m.moscatelli\Desktop\download"
+	Invoke-WebRequest -Method $method -Uri $uri -OutFile $output -ContentType "application/json" -Headers @{Authorization = "Bearer $token"} -ErrorAction Stop
