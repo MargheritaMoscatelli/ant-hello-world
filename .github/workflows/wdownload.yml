@@ -34,8 +34,6 @@ jobs:
       #    #!/bin/bash
       #    curl -O "./Release/test_${{ github.event.inputs.branchName }}_${{ github.event.inputs.versionName }}" ${{ steps.url.outputs.url }}
       - name: Dowload
-        run: |
-          $method = "GET"
-          $token = "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"
-	  $output = "./output"
-	  Invoke-WebRequest -Method $method -Uri $uri -OutFile $output -ContentType "application/json" -Headers @{Authorization = "Bearer $token"} -ErrorAction Stop
+        shell: pwsh
+	run: |
+	  Invoke-WebRequest -Method Get -Uri "https://api.github.com/repos/margheritamoscatelli/ant-hello-world-test/actions/artifacts/76273288/zip" -ContentType "application/json" -Headers @{Authorization = "Bearer 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"} -ErrorAction Stop
