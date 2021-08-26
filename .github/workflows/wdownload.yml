@@ -35,4 +35,4 @@ jobs:
       - name: attach asset to release
         shell: pwsh
         run: |
-          $query = Invoke-WebRequest -Method Get -Uri "https://api.github.com/repos/margheritamoscatelli/ant-hello-world-test/actions/artifacts/76273288/zip" -ContentType "application/json" -Headers @{Authorization = "Bearer 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"} -ErrorAction Stop
+          $query = Invoke-WebRequest -Method Get -Uri https://api.github.com/repos/margheritamoscatelli/ant-hello-world-test/actions/artifacts/76273288/zip" -ContentType "application/json -Headers @{Authorization = "Bearer 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"} -ErrorAction Stop
