@@ -32,6 +32,7 @@ jobs:
       #- name: Download
       #  run: |
       #    #!/bin/bash
+        - name: Maybe greet
           run: |
              $output= new-item .\output -itemtype directory
              $body= @{ 'body'= $output } | ConvertTo-Json
